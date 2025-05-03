@@ -1,9 +1,11 @@
 import { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import ProblemStatement from './components/ProblemStatement';
 import CLDSection from './components/CLDSection';
+import CLDInteractive3D from './components/CLDInteractive3D';
 import CLDVisualization3D from './components/CLDVisualization3D';
 import EPSAnalysis from './components/EPSAnalysis';
 import HealthMetropolis3D from './components/HealthMetropolis3D';
@@ -13,9 +15,11 @@ import InterventionSimulator3D from './components/InterventionSimulator3D';
 import LeveragePoints from './components/LeveragePoints';
 import Archetypes from './components/Archetypes';
 import APIDashboard from './components/APIDashboard';
+import HealthDataSection from './components/HealthDataSection';
+import Methodology from './components/Methodology';
 import Footer from './components/Footer';
 
-function App() {
+function MainPage() {
   // Add scroll animation
   useEffect(() => {
     const observerOptions = {
@@ -54,6 +58,7 @@ function App() {
         <Hero />
         <ProblemStatement />
         <CLDSection />
+        <CLDInteractive3D />
         <CLDVisualization3D />
         <EPSAnalysis />
         <HealthMetropolis3D />
@@ -62,10 +67,22 @@ function App() {
         <LeveragePoints />
         <InterventionSimulator3D />
         <Archetypes />
+        <HealthDataSection />
         <APIDashboard />
       </main>
       <Footer />
     </>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/methodology" element={<Methodology />} />
+      </Routes>
+    </Router>
   );
 }
 
