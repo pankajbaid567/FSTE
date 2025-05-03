@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- ...existing head content... -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Add this to ensure WebGL works properly -->
+    <script>
+      // Check WebGL support on page load
+      window.addEventListener('DOMContentLoaded', function() {
+        try {
+          const canvas = document.createElement('canvas');
+          const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+          
+          if (!gl) {
+            console.error('WebGL not supported');
+            document.body.classList.add('no-webgl');
+            
+            // Show warning if WebGL is not available
+            const warningDiv = document.createElement('div');
+            warningDiv.style.position = 'fixed';
+            warningDiv.style.top = '0';
+            warningDiv.style.left = '0';
+            warningDiv.style.right = '0';
+            warningDiv.style.padding = '10px';
+            warningDiv.style.background = '#FF5252';
+            warningDiv.style.color = 'white';
+            warningDiv.style.textAlign = 'center';
+            warningDiv.style.zIndex = '9999';
+            warningDiv.innerHTML = 'Your browser does not support WebGL, which is required for 3D visualizations.';
+            document.body.appendChild(warningDiv);
+          } else {
+            console.log('WebGL is supported');
+          }
+        } catch (e) {
+          console.error('Error checking WebGL support:', e);
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <!-- ...existing body content... -->
+  </body>
+</html>

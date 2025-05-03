@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect, Suspense, useCallback, useMemo } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
+import { Canvas, useFrame } from 'react-three-fiber';
 import { OrbitControls, Text, Html, useProgress, PerspectiveCamera } from '@react-three/drei';
 import * as THREE from 'three';
 
@@ -695,65 +695,70 @@ function TimelineAnimation3D() {
           position: 'relative', 
           marginTop: '1rem',
           backgroundColor: '#060d18',
-          borderRadius: 'var(--radius-lg)',
+          borderRadius: '12px',
           overflow: 'hidden',
-          boxShadow: 'var(--shadow-xl)',
-          borderTop: '1px solid rgba(255, 255, 255, 0.1)',
-          borderLeft: '1px solid rgba(255, 255, 255, 0.1)',
+          boxShadow: '0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04)',
+          border: '1px solid rgba(255, 255, 255, 0.1)',
         }}>
-          {/* Metric legend */}
           <div style={{
             position: 'absolute',
-            top: '20px',
+            bottom: '60px',
             left: '20px',
-            zIndex: 10,
-            background: 'rgba(0,0,0,0.7)',
-            backdropFilter: 'blur(10px)',
-            border: '1px solid rgba(255, 255, 255, 0.1)',
+            background: 'rgba(255,0,0,0.8)',
             color: 'white',
-            padding: '12px 15px',
-            borderRadius: 'var(--radius-md)',
-            fontSize: '14px',
-            textAlign: 'left'
+            padding: '8px 12px',
+            zIndex: 1000,
+            borderRadius: '4px',
+            fontSize: '12px',
+            display: 'none'
           }}>
-            <div style={{ marginBottom: '8px', fontWeight: 'bold', fontSize: '15px' }}>
-              Current Metric: {
-                metric === 'obesity' ? 'Obesity Rate (%)' :
-                metric === 'diabetes' ? 'Diabetes Rate (%)' :
-                'Physical Activity (min/day)'
-              }
-            </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <div style={{ 
-                width: '12px', 
-                height: '12px', 
-                borderRadius: '50%',
-                backgroundColor: metric === 'obesity' ? '#FF6B6B' : (metric === 'diabetes' ? '#FF9E4F' : '#4CB944') 
-              }}></div>
-              <span>Higher column = {metric === 'activity' ? 'Better health' : 'Worse health'}</span>
-            </div>
+            WebGL Support: <span id="webgl-support"></span><br/>
+            Canvas Size: <span id="canvas-size"></span>
           </div>
           
-          {/* Main canvas - keep existing Canvas component */}
           <Canvas 
             shadows
             dpr={[1, 2]} 
             gl={{ 
               antialias: true,
               alpha: false,
-              powerPreference: "high-performance"
+              powerPreference: "high-performance",
+              failIfMajorPerformanceCaveat: false
+            }}
+            style={{ 
+              position: 'absolute', 
+              top: 0, 
+              left: 0, 
+              width: '100%', 
+              height: '100%',
+              zIndex: 1
+            }}
+            onCreated={({ gl, size }) => {
+              console.log("WebGL context created", gl);
+              console.log("Canvas size", size);
+              
+              const supportEl = document.getElementById('webgl-support');
+              const sizeEl = document.getElementById('canvas-size');
+              if (supportEl) supportEl.textContent = gl ? 'Available' : 'Not Available';
+              if (sizeEl) sizeEl.textContent = `${size.width} x ${size.height}`;
             }}
           >
             <Suspense fallback={<Loader />}>
-              <fog attach="fog" args={['#0a1929', 3.5, 10]} />
               <PerspectiveCamera
                 ref={cameraRef}
                 makeDefault
-                position={cameraPosition}
-                fov={60}
+                position={[0, 2, 2.5]}
+                fov={50}
                 near={0.1}
                 far={100}
               />
+              
+              <axesHelper args={[5]} />
+              <gridHelper args={[10, 10, '#444', '#222']} />
+              
+              <ambientLight intensity={0.5} />
+              <directionalLight position={[5, 10, 5]} intensity={1.5} castShadow />
+              <directionalLight position={[-5, 5, -5]} intensity={0.8} />
               
               <group>
                 <IndiaMap />
@@ -991,7 +996,6 @@ function TimelineAnimation3D() {
             />
           )}
           
-          {/* Instructions with updated styling */}
           <div style={{ 
             position: 'absolute', 
             bottom: '20px', 
@@ -1020,6 +1024,17 @@ function TimelineAnimation3D() {
               </div>
             </div>
           </div>
+        </div>
+        
+        <div style={{ 
+          marginTop: '1rem', 
+          padding: '1rem', 
+          backgroundColor: 'rgba(255, 169, 64, 0.1)', 
+          borderRadius: '4px',
+          borderLeft: '4px solid #FFA940',
+          color: '#333'
+        }}>
+          <strong>Note:</strong> This visualization requires WebGL support in your browser. If you can't see the 3D visualization, please try a modern browser like Chrome, Firefox, or Edge.
         </div>
       </div>
     </section>

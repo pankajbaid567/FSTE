@@ -258,15 +258,53 @@
 /* 3D visualization containers */
 .visualization-container {
   position: relative;
-  border-radius: var(--radius-lg);
+  border-radius: 12px; 
   overflow: hidden;
-  box-shadow: var(--shadow-xl);
-  transform: perspective(1000px) rotateX(2deg);
-  transition: transform var(--transition-medium);
+  box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+  min-height: 500px; /* Ensure container has height even before React mounts */
+  background-color: #060d18; /* Fallback color if 3D doesn't load */
 }
 
 .visualization-container:hover {
   transform: perspective(1000px) rotateX(0deg);
+}
+
+.visualization-container::before {
+  content: "Loading 3D view...";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 1.2rem;
+  z-index: 0;
+}
+
+/* Fix for Canvas element */
+canvas {
+  display: block; /* Prevent inline display issues */
+  outline: none; /* Remove focus outline */
+}
+
+/* Add specific reset for Three.js elements to prevent conflicts */
+.three-js-container * {
+  box-sizing: content-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Fallback style for browsers without WebGL */
+.no-webgl .visualization-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  color: white;
+}
+
+.no-webgl .visualization-container::before {
+  content: "3D visualization unavailable. Your browser may not support WebGL.";
 }
 
 /* Animation keyframes */
