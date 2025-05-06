@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { getGeminiResponse } from '../utils/geminiService'; // Ensure this path is correct
+import './ChatBot.css'; // Import the CSS file
 
 function ChatBot() {
   const [isOpen, setIsOpen] = useState(false);

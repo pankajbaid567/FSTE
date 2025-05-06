@@ -22,8 +22,8 @@ function Footer() {
           
           <div>
             <h4>Team</h4>
-            <p>Created as part of the Full Stack Thinking & Engineering Course</p>
-            <p>© 2023 HealthTrap Team</p>
+            <p>Created as part of the FSTE Course</p>
+            <p>© 2025 HealthTrap Team</p>
           </div>
         </div>
       </div>
