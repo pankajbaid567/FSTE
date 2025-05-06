@@ -57,7 +57,7 @@ function APIDashboard() {
     <section id="data" className="api-dashboard">
       <div className="section-inner">
         <h2>Health & Environment Data</h2>
-        <p>
+        <p className="section-intro">
           Real-time data showing the interconnected factors affecting health outcomes in urban India.
         </p>
         

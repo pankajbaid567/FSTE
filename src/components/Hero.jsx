@@ -113,11 +113,10 @@ function Hero() {
   
   return (
     <section id="home" className="hero" ref={heroRef}>
-      <div className="section-inner">
+      <div className="section-inner" style={{ textAlign: 'center' }}>
         <h1>Why Are We <span className="text-gradient">Still</span> Getting Sicker?</h1>
         <p>
-          Exploring the Systemic Roots of India's Lifestyle Disease Crisis
-          in an era of fitness apps, yoga reels, and nutrition influencers.
+          Exploring the Systemic Roots of India's Lifestyle Disease Crisis and obesity.
         </p>
         <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
           <button onClick={() => document.getElementById('system').scrollIntoView({ behavior: 'smooth' })}>

@@ -5,7 +5,7 @@ function ProblemStatement() {
     <section id="problem" className="problem-statement section">
       <div className="section-inner">
         <h2>The Problem</h2>
-        <p>
+        <p className="section-intro">
           Despite an explosion of health information, fitness trends, and nutritional awareness,
           India's middle class is experiencing alarming rates of obesity, diabetes, and heart disease.
           The paradox demands a deeper understanding beyond individual choices.

@@ -5,7 +5,7 @@ function EPSAnalysis() {
     <section id="analysis" className="eps-analysis section">
       <div className="section-inner">
         <h2>Event-Pattern-Structure Analysis</h2>
-        <p>
+        <p className="section-intro">
           Systems thinking allows us to see beyond symptoms to identify the underlying 
           structures that drive behaviors. Here's how different levels connect in India's health crisis.
         </p>

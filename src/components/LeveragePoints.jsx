@@ -36,7 +36,7 @@ function LeveragePoints() {
     <section id="solutions" className="leverage-points section">
       <div className="section-inner">
         <h2>Leverage Points for Change</h2>
-        <p>
+        <p className="section-intro">
           Rather than focusing only on individual behavior, these interventions target 
           the structural drivers of lifestyle diseases. The most effective changes address 
           underlying systems rather than symptoms.

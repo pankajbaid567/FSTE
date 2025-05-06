@@ -655,8 +655,8 @@ function TimelineAnimation3D() {
           marginBottom: '2rem' 
         }}>
           <div>
-            <h2>Health Trends Over Time</h2>
-            <p style={{ textAlign: 'left', opacity: 0.9 }}>
+            <h2 style={{ textAlign: 'center', width: '100%' }}>Health Trends Over Time</h2>
+            <p className="section-intro">
               Explore how lifestyle disease indicators have evolved across major 
               Indian cities from 2000 to 2023. See the dramatic changes in obesity, 
               diabetes, and physical activity levels.

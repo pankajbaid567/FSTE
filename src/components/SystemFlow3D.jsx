@@ -475,7 +475,7 @@ function SystemFlow3D() {
     <section className="system-flow-section section">
       <div className="section-inner">
         <h2>Health System Dynamics</h2>
-        <p>
+        <p className="section-intro">
           This interactive 3D visualization demonstrates how socioeconomic, behavioral, and environmental factors 
           interconnect to create health outcomes in urban India. Explore the complex relationships 
           between primary and secondary variables by interacting with the model.

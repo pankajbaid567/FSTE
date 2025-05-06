@@ -18,6 +18,8 @@ import APIDashboard from './components/APIDashboard';
 import HealthDataSection from './components/HealthDataSection';
 import Methodology from './components/Methodology';
 import Footer from './components/Footer';
+import ChatBot from './components/ChatBot';
+import SFDSection from './components/SFDSection';
 
 function MainPage() {
   // Add scroll animation
@@ -56,21 +58,26 @@ function MainPage() {
       <Navbar />
       <main>
         <Hero />
+        <SystemFlow3D />
         <ProblemStatement />
         <CLDSection />
-        <CLDInteractive3D />
-        <CLDVisualization3D />
-        <EPSAnalysis />
-        <HealthMetropolis3D />
-        <SystemFlow3D />
-        <TimelineAnimation3D />
+        <SFDSection />
+        
+        {/* <CLDInteractive3D /> */}
+        {/* <CLDVisualization3D /> */}
+       
+        {/* <HealthMetropolis3D /> */}
+        
+        {/* <TimelineAnimation3D /> */}
         <LeveragePoints />
-        <InterventionSimulator3D />
+        {/* <InterventionSimulator3D /> */}
         <Archetypes />
         <HealthDataSection />
+        <EPSAnalysis />
         <APIDashboard />
       </main>
       <Footer />
+      <ChatBot />
     </>
   );
 }
