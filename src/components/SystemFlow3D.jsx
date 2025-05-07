@@ -3,6 +3,7 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, Text, Html, Sphere } from '@react-three/drei';
 import * as THREE from 'three';
 import { gsap } from 'gsap';
+import './SystemFlow3D.css';
 
 // Machine parts
 function Gear({ position, scale, color, speed = 0.01, reversed = false }) {
@@ -481,55 +482,82 @@ function SystemFlow3D() {
           between primary and secondary variables by interacting with the model.
         </p>
         
-        <div style={{ 
-          height: '600px', 
-          width: '100%', 
-          position: 'relative', 
-          marginTop: '2rem',
-          backgroundColor: '#121212',
-          borderRadius: '8px',
-          overflow: 'hidden'
-        }}>
-          <Canvas 
-            camera={{ position: [-5, 10, 15], fov: 50 }}
-            shadows
-            dpr={[1, 2]}
-          >
-            <ambientLight intensity={0.4} />
-            <pointLight position={[10, 10, 10]} intensity={1} castShadow />
-            <directionalLight position={[-10, 10, -5]} intensity={0.8} castShadow />
+        <div className="system-flow-content">
+          <div className="system-flow-model">
+            <Canvas 
+              camera={{ position: [-5, 10, 15], fov: 50 }}
+              shadows
+              dpr={[1, 2]}
+            >
+              <ambientLight intensity={0.4} />
+              <pointLight position={[10, 10, 10]} intensity={1} castShadow />
+              <directionalLight position={[-10, 10, -5]} intensity={0.8} castShadow />
+              
+              <Machine />
+              <Explainer activeVariable={activeVariable} />
+              
+              <OrbitControls 
+                enablePan={true} 
+                enableZoom={true} 
+                enableRotate={true}
+                minPolarAngle={Math.PI / 6}
+                maxPolarAngle={Math.PI / 2}
+                enableDamping
+                dampingFactor={0.05}
+              />
+              
+              {/* Subtle fog for depth */}
+              <fog attach="fog" args={['#121212', 15, 30]} />
+            </Canvas>
             
-            <Machine />
-            <Explainer activeVariable={activeVariable} />
-            
-            <OrbitControls 
-              enablePan={true} 
-              enableZoom={true} 
-              enableRotate={true}
-              minPolarAngle={Math.PI / 6}
-              maxPolarAngle={Math.PI / 2}
-              enableDamping
-              dampingFactor={0.05}
-            />
-            
-            {/* Subtle fog for depth */}
-            <fog attach="fog" args={['#121212', 15, 30]} />
-          </Canvas>
+            {/* Accessibility instructions */}
+            <div className="system-flow-controls">
+              <p>
+                <strong>Controls:</strong> Click nodes to explore relationships. Drag to rotate. Scroll to zoom.
+              </p>
+            </div>
+          </div>
           
-          {/* Accessibility instructions */}
-          <div style={{ 
-            position: 'absolute', 
-            bottom: '10px', 
-            right: '10px', 
-            background: 'rgba(0,0,0,0.6)',
-            color: 'white',
-            padding: '8px 12px',
-            borderRadius: '4px',
-            fontSize: '12px'
-          }}>
-            <p style={{ margin: 0 }}>
-              <strong>Controls:</strong> Click nodes to explore relationships. Drag to rotate. Scroll to zoom.
-            </p>
+          <div className="system-flow-info">
+            <h3>Key System Variables</h3>
+            <div className="system-variables">
+              <div className="variable-category">
+                <h4>Primary Factors</h4>
+                <ul>
+                  <li><span className="dot obesity"></span> Obesity</li>
+                  <li><span className="dot fast-food"></span> Fast Food Consumption</li>
+                  <li><span className="dot sedentary"></span> Sedentary Jobs</li>
+                  <li><span className="dot diseases"></span> Lifestyle Diseases</li>
+                </ul>
+              </div>
+              <div className="variable-category">
+                <h4>Secondary Factors</h4>
+                <ul>
+                  <li><span className="dot stress"></span> Stress Level</li>
+                  <li><span className="dot awareness"></span> Health Awareness</li>
+                  <li><span className="dot sleep"></span> Sleep Quality</li>
+                  <li><span className="dot motivation"></span> Motivation</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div className="system-interpretation">
+              <h4>Understanding the Model</h4>
+              <p>
+                This model illustrates how urban lifestyle factors create reinforcing feedback loops 
+                that contribute to obesity. Notice how sedentary jobs and stress increase fast food 
+                consumption, leading to obesity and subsequent health issues.
+              </p>
+              <p>
+                The color-coded connections show whether factors have positive or negative influences
+                on health outcomes. Red flows represent harmful impacts, while green flows show
+                beneficial effects.
+              </p>
+              <p>
+                Click on specific nodes to focus on their relationships and see how interventions at 
+                different points could impact the entire system.
+              </p>
+            </div>
           </div>
         </div>
       </div>

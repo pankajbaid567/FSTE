@@ -1,0 +1,68 @@
+.api-dashboard {
+  background: linear-gradient(to bottom, #f0f4f8, var(--background));
+  padding: 6rem 1.5rem;
+}
+
+.dashboard-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.metric-card {
+  background: white;
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition-medium);
+  position: relative;
+}
+
+.metric-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.api-source {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 0.7rem;
+  color: var(--text-light);
+  background: rgba(0,0,0,0.05);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.last-updated {
+  font-size: 0.75rem;
+  color: var(--text-light);
+  margin-top: 1rem;
+  text-align: right;
+}
+
+.error-message {
+  color: var(--error);
+  display: block;
+  margin-top: 0.5rem;
+  font-weight: 500;
+}
+
+.data-disclaimer {
+  margin-top: 3rem;
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  background: rgba(67, 97, 238, 0.05);
+  border-left: 3px solid var(--primary);
+}
+
+.data-disclaimer p {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  margin: 0.5rem 0;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

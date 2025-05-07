@@ -1,0 +1,211 @@
+/* ...existing styles... */
+
+/* Team Members Section Styling */
+.team-name {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  padding: 0.8rem;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.team-name:hover {
+  background: rgba(255, 255, 255, 0.8);
+  transform: translateX(5px);
+}
+
+.team-members-heading {
+  margin: 2rem 0 1.5rem;
+  color: var(--primary-dark);
+  font-size: 1.5rem;
+  text-align: center;
+  position: relative;
+}
+
+.team-members-heading::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 3px;
+  background: var(--primary);
+  border-radius: 3px;
+}
+
+.team-members-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+
+.team-member {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
+  background: var(--surface);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-medium);
+  text-align: center;
+}
+
+.team-member:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.member-photo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--primary-light), var(--primary));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.member-avatar {
+  color: white;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.member-details {
+  flex: 1;
+}
+
+.member-details h4 {
+  margin: 0 0 0.5rem;
+  color: var(--primary-dark);
+  font-size: 1.1rem;
+}
+
+.enrollment-number {
+  font-family: "Consolas", monospace;
+  background: rgba(67, 97, 238, 0.1);
+  color: var(--primary);
+  padding: 0.3rem 0.8rem;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin: 0 auto;
+  display: inline-block;
+}
+
+.team-summary {
+  margin-top: 3rem;
+  padding: 1.5rem;
+  background: linear-gradient(to right, rgba(67, 97, 238, 0.05), rgba(76, 201, 240, 0.05));
+  border-radius: var(--radius-md);
+  border-left: 4px solid var(--primary);
+}
+
+.team-summary h3 {
+  margin-top: 0;
+  color: var(--primary-dark);
+  margin-bottom: 1rem;
+}
+
+.team-summary p {
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Styles for the comprehensive variables table */
+.variables-comprehensive-view {
+  margin-bottom: 2.5rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: var(--radius-md);
+  border-left: 4px solid var(--accent);
+}
+
+.variables-comprehensive-view h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.variables-table.comprehensive {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.variables-table.comprehensive th {
+  background-color: rgba(67, 97, 238, 0.1);
+  color: var(--text);
+  font-weight: 600;
+  text-align: left;
+  padding: 0.8rem 1rem;
+  border-bottom: 2px solid rgba(67, 97, 238, 0.2);
+}
+
+.variables-table.comprehensive td {
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  color: var(--text-light);
+  vertical-align: top;
+}
+
+.variables-table.comprehensive .category-cell {
+  font-weight: 600;
+  color: var(--accent);
+  background-color: rgba(67, 97, 238, 0.05);
+  text-align: center;
+  vertical-align: middle;
+}
+
+.variables-table.comprehensive tr:hover td {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+/* Subtle color differences for each category */
+.variables-table.comprehensive tr:nth-child(-n+3) td:not(.category-cell) {
+  border-left: 2px solid rgba(255, 107, 107, 0.3); /* Behavioral - reddish */
+}
+
+.variables-table.comprehensive tr:nth-child(n+4):nth-child(-n+6) td:not(.category-cell) {
+  border-left: 2px solid rgba(76, 201, 240, 0.3); /* Health Outcomes - bluish */
+}
+
+.variables-table.comprehensive tr:nth-child(n+7):nth-child(-n+10) td:not(.category-cell) {
+  border-left: 2px solid rgba(255, 190, 11, 0.3); /* Socioeconomic - yellowish */
+}
+
+.variables-table.comprehensive tr:nth-child(n+11) td:not(.category-cell) {
+  border-left: 2px solid rgba(67, 97, 238, 0.3); /* Structural - purple */
+}
+
+@media (max-width: 768px) {
+  .team-members-list {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .team-member {
+    padding: 1.2rem;
+  }
+
+  .variables-comprehensive-view {
+    padding: 1rem;
+    overflow-x: auto;
+  }
+  
+  .variables-table.comprehensive {
+    font-size: 0.8rem;
+  }
+  
+  .variables-table.comprehensive th, 
+  .variables-table.comprehensive td {
+    padding: 0.6rem 0.8rem;
+  }
+}

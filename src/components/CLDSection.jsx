@@ -86,7 +86,7 @@ function CLDSection() {
         <div className="cld-container">
           <div className="cld-image-container">
             <img 
-              src="/images/cld.png" 
+              src="/images/cld.jpeg" 
               alt="Causal Loop Diagram of Obesity System" 
               className="cld-image"
             />

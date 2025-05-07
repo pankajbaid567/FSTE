@@ -3,7 +3,7 @@ import HealthDataCharts from './HealthDataCharts';
 
 function HealthDataSection() {
   return (
-    <section className="health-data-section section">
+    <section id="daata" className="health-data-section section">
       <div className="section-inner">
         <h2>Indian Health Metrics Dashboard</h2>
         <p>

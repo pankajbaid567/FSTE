@@ -38,7 +38,7 @@ function Navbar() {
               <a href="#system">System Model</a>
               <a href="#analysis">Analysis</a>
               <a href="#solutions">Solutions</a>
-              <a href="#data">Data</a>
+              <a href="#daata">Data</a>
             </>
           ) : (
             <Link to="/">Home</Link>

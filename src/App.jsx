@@ -20,6 +20,7 @@ import Methodology from './components/Methodology';
 import Footer from './components/Footer';
 import ChatBot from './components/ChatBot';
 import SFDSection from './components/SFDSection';
+import BOTGSection from './components/BOTGSection';
 
 function MainPage() {
   // Add scroll animation
@@ -62,6 +63,7 @@ function MainPage() {
         <ProblemStatement />
         <CLDSection />
         <SFDSection />
+        <BOTGSection />
         
         {/* <CLDInteractive3D /> */}
         {/* <CLDVisualization3D /> */}

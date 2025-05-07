@@ -106,6 +106,32 @@ function Methodology() {
     activity: useRef(null)
   };
 
+  // Variables content for tabs, organized by category
+  const variablesContent = {
+    behavioral: [
+      { variable: 'Emotional Eating', definition: 'Eating due to stress/emotions' },
+      { variable: 'Fast Food Consumption', definition: 'Frequency of fast food intake' },
+      { variable: 'Screen Time', definition: 'Hours spent on digital screens' }
+    ],
+    health: [
+      { variable: 'Obesity Rate', definition: '% of population obese' },
+      { variable: 'Hypertension Cases', definition: 'Incidence of high blood pressure' },
+      { variable: 'Diabetes Incidence', definition: 'Cases linked to obesity' }
+    ],
+    socioeconomic: [
+      { variable: 'Work Hours', definition: 'Long job hours, sedentary patterns' },
+      { variable: 'Sedentary Jobs', definition: 'Office work, minimal physical effort' },
+      { variable: 'Health Awareness', definition: 'Knowledge about lifestyle risks' },
+      { variable: 'Economic Mobility', definition: 'Ability to access upward economic opportunity' }
+    ],
+    structural: [
+      { variable: 'Traditional Diets', definition: 'Home-cooked, culturally rooted meals' },
+      { variable: 'Preventive Healthcare', definition: 'Early screening and intervention' },
+      { variable: 'Stress Levels', definition: 'Emotional/mental stress influencing behavior' },
+      { variable: 'Emotional Triggers', definition: 'Situations that provoke emotional eating' }
+    ]
+  };
+
   // Handle scroll effects
   useEffect(() => {
     const handleScroll = () => {
@@ -251,6 +277,14 @@ function Methodology() {
       {/* Floating quick nav */}
       <div className="quick-nav">
         <button 
+          className={activeSection === 'team' ? 'active' : ''} 
+          onClick={() => scrollToSection('team')}
+          aria-label="Navigate to Team Details section"
+        >
+          <span className="quick-nav-dot"></span>
+          <span className="quick-nav-label">Team</span>
+        </button>
+        <button 
           className={activeSection === 'intro' ? 'active' : ''} 
           onClick={() => scrollToSection('intro')}
           aria-label="Navigate to Introduction section"
@@ -377,6 +411,12 @@ function Methodology() {
           <div className="methodology-nav-inner">
             <h3>Contents</h3>
             <ul>
+              <li className={activeSection === 'team' ? 'active' : ''}>
+                <button onClick={() => scrollToSection('team')}>
+                  <span className="section-number">00</span>
+                  <span>Team Details</span>
+                </button>
+              </li>
               <li className={activeSection === 'intro' ? 'active' : ''}>
                 <button onClick={() => scrollToSection('intro')}>
                   <span className="section-number">01</span>
@@ -450,6 +490,93 @@ function Methodology() {
         </div>
         
         <div className="methodology-content">
+          {/* Team members section */}
+          <motion.section 
+            id="team" 
+            className="methodology-section"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={sectionVariants}
+          >
+            <div className="section-header">
+              <div className="section-number-badge">00</div>
+              <h2>Team Details</h2>
+            </div>
+            
+            <div className="methodology-card">
+              <div className="team-info">
+                <h3>Systems Thinking Hackathon 2025 – Group-20 Report</h3>
+                <div className="team-name">
+                  <strong>Team Name:</strong> Group20
+                </div>
+              </div>
+              
+              <h3 className="team-members-heading">Team Members</h3>
+              
+              <div className="team-members-list">
+                <div className="team-member">
+                  <div className="member-photo">
+                    <div className="member-avatar">DV</div>
+                  </div>
+                  <div className="member-details">
+                    <h4>Dhanvin Vadlamudi</h4>
+                    <div className="enrollment-number">2401010150</div>
+                  </div>
+                </div>
+                
+                <div className="team-member">
+                  <div className="member-photo">
+                    <div className="member-avatar">GMG</div>
+                  </div>
+                  <div className="member-details">
+                    <h4>Guru Manohar Gupta</h4>
+                    <div className="enrollment-number">2401010125</div>
+                  </div>
+                </div>
+                
+                <div className="team-member">
+                  <div className="member-photo">
+                    <div className="member-avatar">PB</div>
+                  </div>
+                  <div className="member-details">
+                    <h4>Pankaj Baid</h4>
+                    <div className="enrollment-number">2401010316</div>
+                  </div>
+                </div>
+                
+                <div className="team-member">
+                  <div className="member-photo">
+                    <div className="member-avatar">SG</div>
+                  </div>
+                  <div className="member-details">
+                    <h4>Shrestha Gupta</h4>
+                    <div className="enrollment-number">2401010446</div>
+                  </div>
+                </div>
+                
+                <div className="team-member">
+                  <div className="member-photo">
+                    <div className="member-avatar">YS</div>
+                  </div>
+                  <div className="member-details">
+                    <h4>Yatin Singh</h4>
+                    <div className="enrollment-number">2401010243</div>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="team-summary">
+                <h3>Project Overview</h3>
+                <p>
+                  Our team has applied systems thinking methodology to analyze the complex problem of obesity and 
+                  lifestyle diseases in middle-class India. We've identified key variables, feedback loops, and 
+                  leverage points for intervention through rigorous analysis and visualization techniques.
+                </p>
+              </div>
+            </div>
+          </motion.section>
+          
           {/* Introduction section with interactive chart */}
           <motion.section 
             id="intro" 
@@ -848,12 +975,79 @@ function Methodology() {
             </div>
             
             <div className="methodology-card">
+              {/* Add a comprehensive table displaying all variables by category */}
+              <div className="variables-comprehensive-view">
+                <h3>Complete Variable List by Category</h3>
+                <table className="variables-table comprehensive">
+                  <thead>
+                    <tr>
+                      <th>Category</th>
+                      <th>Variable</th>
+                      <th>Definition</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {/* Behavioral Variables */}
+                    {variablesContent.behavioral.map((item, index) => (
+                      <tr key={`behavioral-${index}`}>
+                        {index === 0 && (
+                          <td rowSpan={variablesContent.behavioral.length} className="category-cell">
+                            Behavioral
+                          </td>
+                        )}
+                        <td>{item.variable}</td>
+                        <td>{item.definition}</td>
+                      </tr>
+                    ))}
+                    
+                    {/* Health Outcomes Variables */}
+                    {variablesContent.health.map((item, index) => (
+                      <tr key={`health-${index}`}>
+                        {index === 0 && (
+                          <td rowSpan={variablesContent.health.length} className="category-cell">
+                            Health Outcomes
+                          </td>
+                        )}
+                        <td>{item.variable}</td>
+                        <td>{item.definition}</td>
+                      </tr>
+                    ))}
+                    
+                    {/* Socioeconomic Variables */}
+                    {variablesContent.socioeconomic.map((item, index) => (
+                      <tr key={`socioeconomic-${index}`}>
+                        {index === 0 && (
+                          <td rowSpan={variablesContent.socioeconomic.length} className="category-cell">
+                            Socioeconomic
+                          </td>
+                        )}
+                        <td>{item.variable}</td>
+                        <td>{item.definition}</td>
+                      </tr>
+                    ))}
+                    
+                    {/* Structural Variables */}
+                    {variablesContent.structural.map((item, index) => (
+                      <tr key={`structural-${index}`}>
+                        {index === 0 && (
+                          <td rowSpan={variablesContent.structural.length} className="category-cell">
+                            Structural
+                          </td>
+                        )}
+                        <td>{item.variable}</td>
+                        <td>{item.definition}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              
               <div className="variables-tabs">
                 <div className="tabs-header">
-                  <button className={`tab-btn ${activeTab === 'primary' ? 'active' : ''}`} onClick={() => setActiveTab('primary')}>Primary Factors</button>
                   <button className={`tab-btn ${activeTab === 'behavioral' ? 'active' : ''}`} onClick={() => setActiveTab('behavioral')}>Behavioral Factors</button>
                   <button className={`tab-btn ${activeTab === 'health' ? 'active' : ''}`} onClick={() => setActiveTab('health')}>Health Outcomes</button>
                   <button className={`tab-btn ${activeTab === 'socioeconomic' ? 'active' : ''}`} onClick={() => setActiveTab('socioeconomic')}>Socioeconomic Factors</button>
+                  <button className={`tab-btn ${activeTab === 'structural' ? 'active' : ''}`} onClick={() => setActiveTab('structural')}>Structural Factors</button>
                 </div>
                 
                 <div className="tab-content">
@@ -865,41 +1059,6 @@ function Methodology() {
                       exit={{ opacity: 0, y: -10 }}
                       transition={{ duration: 0.3 }}
                     >
-                      {activeTab === 'primary' && (
-                        <div className="variables-table">
-                          <table>
-                            <thead>
-                              <tr>
-                                <th>Variable</th>
-                                <th>Definition</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr>
-                                <td>Obesity Rate</td>
-                                <td>Percentage of population affected by obesity</td>
-                              </tr>
-                              <tr>
-                                <td>Emotional Eating</td>
-                                <td>Eating triggered by stress or emotional states</td>
-                              </tr>
-                              <tr>
-                                <td>Fast Food Consumption</td>
-                                <td>Frequency of fast/junk food intake</td>
-                              </tr>
-                              <tr>
-                                <td>Work Hours</td>
-                                <td>Long working hours contributing to sedentary lifestyle</td>
-                              </tr>
-                              <tr>
-                                <td>Screen Time</td>
-                                <td>Time spent on screens (TV, mobile, computer)</td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </div>
-                      )}
-                      
                       {activeTab === 'behavioral' && (
                         <div className="variables-table">
                           <table>
@@ -910,22 +1069,12 @@ function Methodology() {
                               </tr>
                             </thead>
                             <tbody>
-                              <tr>
-                                <td>Physical Activity</td>
-                                <td>Amount of exercise or movement</td>
-                              </tr>
-                              <tr>
-                                <td>Sedentary Jobs</td>
-                                <td>Employment requiring prolonged sitting</td>
-                              </tr>
-                              <tr>
-                                <td>Emotional Triggers</td>
-                                <td>Psychological stimuli leading to emotional eating</td>
-                              </tr>
-                              <tr>
-                                <td>Stress Levels</td>
-                                <td>Degree of emotional/mental stress</td>
-                              </tr>
+                              {variablesContent.behavioral.map((item, index) => (
+                                <tr key={index}>
+                                  <td>{item.variable}</td>
+                                  <td>{item.definition}</td>
+                                </tr>
+                              ))}
                             </tbody>
                           </table>
                         </div>
@@ -941,18 +1090,12 @@ function Methodology() {
                               </tr>
                             </thead>
                             <tbody>
-                              <tr>
-                                <td>Hypertension Cases</td>
-                                <td>Instances of high blood pressure linked to obesity</td>
-                              </tr>
-                              <tr>
-                                <td>Diabetes Incidence</td>
-                                <td>Rate of diabetes cases caused by obesity</td>
-                              </tr>
-                              <tr>
-                                <td>HealthCare Cost</td>
-                                <td>National/private cost burden of obesity-related diseases</td>
-                              </tr>
+                              {variablesContent.health.map((item, index) => (
+                                <tr key={index}>
+                                  <td>{item.variable}</td>
+                                  <td>{item.definition}</td>
+                                </tr>
+                              ))}
                             </tbody>
                           </table>
                         </div>
@@ -968,22 +1111,33 @@ function Methodology() {
                               </tr>
                             </thead>
                             <tbody>
+                              {variablesContent.socioeconomic.map((item, index) => (
+                                <tr key={index}>
+                                  <td>{item.variable}</td>
+                                  <td>{item.definition}</td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
+                      )}
+                      
+                      {activeTab === 'structural' && (
+                        <div className="variables-table">
+                          <table>
+                            <thead>
                               <tr>
-                                <td>Traditional Diets</td>
-                                <td>Home-cooked, nutritionally balanced Indian meals</td>
+                                <th>Variable</th>
+                                <th>Definition</th>
                               </tr>
-                              <tr>
-                                <td>Health Awareness</td>
-                                <td>Public understanding of obesity-related risks and prevention</td>
-                              </tr>
-                              <tr>
-                                <td>Preventive Healthcare</td>
-                                <td>Early interventions and screenings to avoid complications</td>
-                              </tr>
-                              <tr>
-                                <td>Economic Mobility</td>
-                                <td>Access to financial and social advancement</td>
-                              </tr>
+                            </thead>
+                            <tbody>
+                              {variablesContent.structural.map((item, index) => (
+                                <tr key={index}>
+                                  <td>{item.variable}</td>
+                                  <td>{item.definition}</td>
+                                </tr>
+                              ))}
                             </tbody>
                           </table>
                         </div>

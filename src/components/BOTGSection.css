@@ -1,0 +1,152 @@
+.botg-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.botg-card {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.botg-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.botg-image {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 20px 20px 0;
+  background: #f9f9f9;
+}
+
+.botg-image img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.botg-card:hover .botg-image img {
+  transform: scale(1.02);
+}
+
+.botg-description {
+  padding: 25px;
+}
+
+.botg-description h3 {
+  margin-top: 0;
+  color: var(--primary-dark);
+  font-size: 1.6rem;
+  margin-bottom: 15px;
+  position: relative;
+  display: inline-block;
+}
+
+.botg-description h3::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 40px;
+  height: 3px;
+  background: var(--primary);
+  border-radius: 2px;
+}
+
+.botg-description p {
+  color: var(--text);
+  line-height: 1.7;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.insight-points {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.insight-point {
+  background: rgba(67, 97, 238, 0.05);
+  border-radius: 8px;
+  padding: 15px;
+  border-left: 3px solid var(--primary);
+}
+
+.insight-point h4 {
+  margin: 0 0 8px;
+  color: var(--primary-dark);
+  font-size: 1.1rem;
+}
+
+.insight-point p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+@media (min-width: 768px) {
+  .botg-card {
+    flex-direction: row;
+    min-height: 400px;
+  }
+
+  .botg-image {
+    width: 50%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+  }
+
+  .botg-description {
+    width: 50%;
+    padding: 30px;
+    overflow-y: auto;
+    max-height: 600px;
+  }
+  
+  /* Custom scrollbar for overflow content */
+  .botg-description::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .botg-description::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .botg-description::-webkit-scrollbar-thumb {
+    background-color: #d1d5db;
+    border-radius: 3px;
+  }
+}
+
+/* Animation for section entrance */
+.animate-in.visible .botg-card {
+  animation: slideUp 0.6s ease forwards;
+}
+
+.animate-in .botg-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,115 @@
+.system-flow-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 2rem;
+}
+
+.system-flow-model {
+  position: relative;
+  height: 600px;
+  width: 100%;
+  background-color: #121212;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.system-flow-controls {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.system-flow-controls p {
+  margin: 0;
+}
+
+.system-flow-info {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 20px;
+  color: white;
+}
+
+.system-flow-info h3 {
+  color: var(--accent);
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: 1.4rem;
+}
+
+.system-flow-info h4 {
+  color: var(--primary-light);
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+}
+
+.system-variables {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-bottom: 20px;
+}
+
+.variable-category {
+  flex: 1;
+  min-width: 200px;
+}
+
+.variable-category ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.variable-category li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+.dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.dot.obesity { background-color: #FF6B6B; }
+.dot.fast-food { background-color: #FF9E4F; }
+.dot.sedentary { background-color: #64DFDF; }
+.dot.diseases { background-color: #EF476F; }
+.dot.stress { background-color: #FF9E4F; }
+.dot.awareness { background-color: #8AC926; }
+.dot.sleep { background-color: #6A4C93; }
+.dot.motivation { background-color: #06D6A0; }
+
+.system-interpretation p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 12px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Media queries for responsive layout */
+@media (min-width: 992px) {
+  .system-flow-content {
+    flex-direction: row;
+  }
+  
+  .system-flow-model {
+    width: 66.67%; /* 2/3 of the width */
+  }
+  
+  .system-flow-info {
+    width: 33.33%; /* 1/3 of the width */
+  }
+}
