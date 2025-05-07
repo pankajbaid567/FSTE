@@ -470,13 +470,13 @@ function Methodology() {
             <div className="methodology-download-section">
               <h4>Download Resources</h4>
               <div className="download-buttons">
-                <button className="download-btn pdf">
+                <a href="https://docs.google.com/document/d/1-1wIfydG9nHekFwgEH90k6nMp1nTg5elPmDZiN0PXU4/edit?usp=sharing" target="_blank" rel="noopener noreferrer" className="download-btn pdf">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M12 16V4M12 16L6 10M12 16L18 10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     <path d="M3 20H21" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
                   </svg>
                   <span>PDF Report</span>
-                </button>
+                </a>
                 <button className="download-btn data">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M4 6V4C4 3.44772 4.44772 3 5 3H19C19.5523 3 20 3.44772 20 4V20C20 20.5523 19.5523 21 19 21H5C4.44772 21 4 20.5523 4 20V18" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
@@ -517,7 +517,7 @@ function Methodology() {
               <div className="team-members-list">
                 <div className="team-member">
                   <div className="member-photo">
-                    <div className="member-avatar">DV</div>
+                    <img src="/images/team/dhanvin.jpeg" />
                   </div>
                   <div className="member-details">
                     <h4>Dhanvin Vadlamudi</h4>
@@ -527,7 +527,7 @@ function Methodology() {
                 
                 <div className="team-member">
                   <div className="member-photo">
-                    <div className="member-avatar">GMG</div>
+                  <img src="/images/team/guru.jpeg" />
                   </div>
                   <div className="member-details">
                     <h4>Guru Manohar Gupta</h4>
@@ -537,7 +537,7 @@ function Methodology() {
                 
                 <div className="team-member">
                   <div className="member-photo">
-                    <div className="member-avatar">PB</div>
+                  <img src="/images/team/pankaj.jpeg" />
                   </div>
                   <div className="member-details">
                     <h4>Pankaj Baid</h4>
@@ -547,7 +547,7 @@ function Methodology() {
                 
                 <div className="team-member">
                   <div className="member-photo">
-                    <div className="member-avatar">SG</div>
+                  <img src="/images/team/shrestha.jpeg" />
                   </div>
                   <div className="member-details">
                     <h4>Shrestha Gupta</h4>
@@ -557,7 +557,7 @@ function Methodology() {
                 
                 <div className="team-member">
                   <div className="member-photo">
-                    <div className="member-avatar">YS</div>
+                  <img src="/images/team/yatin.jpeg" />
                   </div>
                   <div className="member-details">
                     <h4>Yatin Singh</h4>

@@ -1214,17 +1214,18 @@ line-height: 1.1;
   padding: 0.6rem 1rem;
   border-radius: var(--radius-md);
   background: rgba(67, 97, 238, 0.15);
-  color: var(--primary);
+  color: var(--primary-dark); /* Improved text color visibility */
   border: none;
   font-size: 0.9rem;
-  font-weight: 500;
+  font-weight: 600; /* Increased font weight for better visibility */
   cursor: pointer;
   transition: all var(--transition-fast);
+  text-decoration: none; /* Ensure links don't have underlines */
 }
 
 .download-btn.pdf {
   background: rgba(76, 201, 240, 0.15);
-  color: var(--accent);
+  color: var(--accent-dark); /* Improved text color visibility */
 }
 
 .download-btn:hover {
@@ -1234,6 +1235,10 @@ line-height: 1.1;
 
 .download-btn.pdf:hover {
   background: rgba(76, 201, 240, 0.25);
+}
+
+.download-btn svg {
+  color: currentColor; /* Ensure SVG icons match text color */
 }
 
 /* Main content area */

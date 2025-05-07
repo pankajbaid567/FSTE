@@ -351,114 +351,7 @@ function Machine() {
   );
 }
 
-// Updated explainer with more comprehensive information
-function Explainer({ activeVariable }) {
-  const variableInfo = {
-    income: {
-      title: "Income Level",
-      description: "Higher income can provide better access to healthcare and healthy food options, but also correlates with sedentary jobs."
-    },
-    sedentary: {
-      title: "Sedentary Jobs",
-      description: "Office jobs with long sitting hours contribute to physical inactivity and increased work pressure."
-    },
-    fast_food: {
-      title: "Fast Food Consumption",
-      description: "Frequent consumption of processed, high-calorie foods is a major contributor to obesity."
-    },
-    inactivity: {
-      title: "Physical Inactivity",
-      description: "Lack of regular exercise is directly linked to obesity and metabolic disorders."
-    },
-    obesity: {
-      title: "Obesity",
-      description: "A primary risk factor for numerous lifestyle diseases including diabetes and hypertension."
-    },
-    diseases: {
-      title: "Lifestyle Diseases",
-      description: "Conditions like diabetes, hypertension, and heart disease that result from lifestyle choices."
-    },
-    pressure: {
-      title: "Work Pressure",
-      description: "High-stress work environments contribute to overall stress levels and poor health decisions."
-    },
-    stress: {
-      title: "Stress Level",
-      description: "Chronic stress affects sleep quality and often leads to comfort eating behaviors."
-    },
-    sleep: {
-      title: "Sleep Quality",
-      description: "Poor sleep directly impacts motivation for healthy behaviors and metabolic health."
-    },
-    awareness: {
-      title: "Health Awareness",
-      description: "Knowledge about health impacts motivation to make better lifestyle choices."
-    },
-    motivation: {
-      title: "Motivation for Healthy Living",
-      description: "The psychological drive to maintain healthy habits despite challenges."
-    },
-    healthy_food: {
-      title: "Healthy Food Options",
-      description: "Availability and accessibility of nutritious food alternatives."
-    },
-    healthcare: {
-      title: "Healthcare Costs",
-      description: "The financial burden of managing lifestyle diseases, which creates feedback loops in the system."
-    }
-  };
-  
-  const defaultContent = {
-    title: "Health System Dynamics",
-    description: "This model demonstrates how lifestyle factors interact to create health outcomes. Click on any variable to highlight its connections and learn more."
-  };
-  
-  const content = activeVariable ? variableInfo[activeVariable] : defaultContent;
-  
-  return (
-    <Html position={[-8, 4, 0]}>
-      <div style={{
-        backgroundColor: 'rgba(0,0,0,0.7)',
-        padding: '15px',
-        borderRadius: '8px',
-        color: 'white',
-        width: '300px',
-        backdropFilter: 'blur(4px)'
-      }}>
-        <h3 style={{ margin: '0 0 10px 0' }}>{content.title}</h3>
-        <p style={{ fontSize: '14px', lineHeight: '1.5' }}>
-          {content.description}
-        </p>
-        
-        {!activeVariable && (
-          <ul style={{ fontSize: '14px', padding: '0 0 0 20px' }}>
-            <li style={{ margin: '5px 0' }}>Primary variables are shown as rectangles</li>
-            <li style={{ margin: '5px 0' }}>Secondary factors are shown as spheres</li>
-            <li style={{ margin: '5px 0' }}>Green flows represent positive health impacts</li>
-            <li style={{ margin: '5px 0' }}>Red flows represent negative health impacts</li>
-          </ul>
-        )}
-        
-        <button 
-          onClick={() => window.dispatchEvent(new CustomEvent('reset-view'))}
-          style={{
-            background: '#3A86FF',
-            border: 'none',
-            borderRadius: '4px',
-            color: 'white',
-            padding: '8px 12px',
-            marginTop: '15px',
-            cursor: 'pointer',
-            fontSize: '14px'
-          }}
-        >
-          Reset View
-        </button>
-      </div>
-    </Html>
-  );
-}
-
+// Updated system flow 3D component without the explainer card
 function SystemFlow3D() {
   const [activeVariable, setActiveVariable] = useState(null);
   
@@ -485,7 +378,7 @@ function SystemFlow3D() {
         <div className="system-flow-content">
           <div className="system-flow-model">
             <Canvas 
-              camera={{ position: [-5, 10, 15], fov: 50 }}
+              camera={{ position: [-3, 8, 12], fov: 45 }} // Closer camera position and narrower field of view
               shadows
               dpr={[1, 2]}
             >
@@ -494,7 +387,6 @@ function SystemFlow3D() {
               <directionalLight position={[-10, 10, -5]} intensity={0.8} castShadow />
               
               <Machine />
-              <Explainer activeVariable={activeVariable} />
               
               <OrbitControls 
                 enablePan={true} 
