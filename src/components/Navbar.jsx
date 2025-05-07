@@ -29,7 +29,7 @@ function Navbar() {
   return (
     <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="nav-inner">
-        <Link to="/" className="logo">HealthTrap</Link>
+        <Link to="/" className="logo">Group-20</Link>
         
         <div className={`nav-links ${mobileMenuOpen ? 'mobile-open' : ''}`}>
           {isHomePage ? (

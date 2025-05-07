@@ -491,7 +491,7 @@ function Methodology() {
         
         <div className="methodology-content">
           {/* Team members section */}
-          <motion.section 
+          {/* <motion.section 
             id="team" 
             className="methodology-section"
             initial="hidden"
@@ -575,7 +575,7 @@ function Methodology() {
                 </p>
               </div>
             </div>
-          </motion.section>
+          </motion.section> */}
           
           {/* Introduction section with interactive chart */}
           <motion.section 

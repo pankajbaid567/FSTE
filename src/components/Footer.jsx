@@ -23,7 +23,14 @@ function Footer() {
           <div>
             <h4>Team</h4>
             <p>Created as part of the FSTE Course</p>
-            <p>© 2025 HealthTrap Team</p>
+            <ul>
+              <li><a href="https://www.linkedin.com/in/yatin-singh-b37817323/" target="_blank" rel="noreferrer">Yatin Singh</a></li>
+              <li><a href="https://www.linkedin.com/in/dhanvin-vadlamudi-365614318/" target="_blank" rel="noreferrer">Dhanvin Vadlamudi</a></li>  
+              <li><a href="https://www.linkedin.com/in/pankaj-baid-0109b1226/" target="_blank" rel="noreferrer">Pankaj Baid</a></li>
+              <li><a href="https://www.linkedin.com/in/guru-manohar-gupta/" target="_blank" rel="noreferrer">Guru Manohar Gupta</a></li>
+              <li><a href="https://www.linkedin.com/in/shreshtha-gupta-7125aa324/" target="_blank" rel="noreferrer">Shrestha Gupta</a></li>
+            </ul>
+            <p>© 2025 Group 20 Team</p>
           </div>
         </div>
       </div>
